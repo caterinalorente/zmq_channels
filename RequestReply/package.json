@@ -1,0 +1,20 @@
+{
+  "name": "RequestReply",
+  "version": "0.0.0",
+  "description": "Request Reply with DEALER",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "author": "Caterina",
+  "license": "ISC",
+  "dependencies": {
+    "zmq": "^2.7.0",
+    "coffee-script": "^1.7.1",
+    "q":"^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.19.0",
+    "should": "^3.3.1"
+  }
+}
