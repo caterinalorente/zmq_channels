@@ -1,0 +1,19 @@
+{
+  "name": "SendReceive",
+  "version": "0.0.0",
+  "description": "Send Receive with PUSH PULL",
+  "main": "src/index.coffee",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "author": "Caterina",
+  "license": "ISC",
+  "dependencies": {
+    "zmq": "^2.7.0",
+    "coffee-script": "^1.7.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.19.0",
+    "should": "^3.3.1"
+  }
+}
