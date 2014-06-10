@@ -1,4 +1,4 @@
-promise = require 'bluebird'
+bluebird = require 'bluebird'
 RequestChannel = require '../src/request_channel'
 ReplyChannel = require '../src/reply_channel'
 
@@ -12,7 +12,7 @@ describe 'Request Reply test with promises', ->
     
   before ->
     handleRequest = (msg) ->
-      deferred = Q.defer()
+      deferred = bluebird.defer()
       console.log "Server received #{msg} \n"
 
       setTimeout () -> # Simulate asynchronous behaviour
@@ -30,6 +30,6 @@ describe 'Request Reply test with promises', ->
     .then (reply) ->
       console.log "Client received #{reply} \n"
       done()
-    .fail (error) ->
+    .catch (error) ->
       console.error error
       done()
