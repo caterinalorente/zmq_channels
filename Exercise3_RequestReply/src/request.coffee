@@ -6,6 +6,7 @@ class RequestChannel
     # Socket connection
     requestSocket.connect "#{@protocol}://#{@ip}:#{@port}"
     console.log "RequestChannel connected to #{@protocol}://#{@ip}:#{@port}"
+    console.log ""
 
   sendRequest: (request) ->
     requestSocket.send request
@@ -14,6 +15,6 @@ class RequestChannel
   printReply: () ->
     requestSocket.on 'message', (reply) ->
       console.log ("Received reply #{reply} \n")
-      # requestSocket.close()
+      reply.toString()
 
 module.exports = RequestChannel

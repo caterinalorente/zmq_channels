@@ -9,4 +9,4 @@ setInterval () ->
   requestChannel.sendRequest request
 , 2000
 
-requestChannel.printReply()
+printReply()
