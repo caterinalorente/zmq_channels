@@ -9,7 +9,7 @@ class ReplyChannel
 
     # Request received
     replySocket.on 'message', (received_request) ->
-      console.log "Received request: #{received_request.toString()}"
+      # console.log "Received request: #{received_request.toString()}"
       # Be polite and send reply
       reply = 'Woof woof!'
       replySocket.send reply
