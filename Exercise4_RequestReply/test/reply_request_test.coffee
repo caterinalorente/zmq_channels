@@ -1,5 +1,5 @@
-RequestChannel = require '../src/request'
-ReplyChannel = require '../src/reply'
+RequestChannel = require '../src/request_channel'
+ReplyChannel = require '../src/reply_channel'
 
 describe 'Request Reply test', ->
   # Variables to be used MUST be declared at the
