@@ -11,4 +11,6 @@ describe 'Request Reply test', ->
 
   it 'should send a request and receive a reply correctly', (done) ->
     requestChannel.sendRequest(MOCK_MESSAGE)
-    requestChannel.waitForReply(() -> done())
+    requestChannel.waitForReply((reply) -> 
+      reply.should.be.eql MOCK_REPLY
+      done())

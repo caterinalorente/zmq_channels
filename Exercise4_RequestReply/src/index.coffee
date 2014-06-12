@@ -9,4 +9,4 @@ setInterval () ->
   requestChannel.sendRequest request
 , 2000
 
-requestChannel.waitForReply () ->
+requestChannel.waitForReply (reply) -> console.log "Received reply #{reply} \n"

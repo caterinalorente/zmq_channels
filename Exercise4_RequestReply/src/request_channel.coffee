@@ -17,7 +17,6 @@ class RequestChannel
   # When being called in the usual flow it will receive an empty function.
   waitForReply: (callback)  =>
     requestSocket.on 'message', (reply) ->
-      console.log ("Received reply #{reply} \n")
-      callback()
+      callback(reply.toString())
 
 module.exports = RequestChannel
