@@ -14,8 +14,8 @@ class RequestChannel
     console.log ""
     
     # Wait for reply. When it arrives
-    # pass it to the callback  
-    requestSocket.on 'message', (reply) =>
+    # pass it to the callback
+    requestSocket.on 'message', (reply) ->
       callback(reply.toString())
 
   # Send provided request through socket

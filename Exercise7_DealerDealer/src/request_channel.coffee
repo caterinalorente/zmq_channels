@@ -15,7 +15,7 @@ class RequestChannel
     console.log ""
 
     # Wait for reply. When it arrives
-    # pass it to the callback  
+    # pass it to the callback
     requestSocket.on 'message', (message) =>
       reply = JSON.parse message
       @callback(reply)

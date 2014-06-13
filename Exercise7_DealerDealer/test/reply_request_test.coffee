@@ -16,6 +16,6 @@ describe 'Request Reply test', ->
     requestChannel = new RequestChannel('tcp', '127.0.0.1', '4000', (reply) ->
       console.log "Reply from #{reply.id} #{reply.message} \n"
       reply.message.should.be.eql MOCK_REPLY
-      done())      
+      done())
 
     requestChannel.sendRequest MOCK_REQUEST

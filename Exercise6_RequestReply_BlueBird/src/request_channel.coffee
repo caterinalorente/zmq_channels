@@ -1,5 +1,4 @@
-# REQUEST CHANNEL
-
+# Import
 bluebird = require 'bluebird'
 zmq = require 'zmq'
 requestSocket = zmq.socket 'dealer'
@@ -10,25 +9,24 @@ class RequestChannel
     requestSocket.connect "#{@protocol}://#{@ip}:#{@port}"
     console.log "RequestChannel connected to #{@protocol}://#{@ip}:#{@port} \n"
 
-# requestSocket listens for replies from ReplyChannel
-# When a reply is received
-# - header is added
-# - content is passed to client who was expecting this promise
-
+    # requestSocket listens for replies from reply channel
+    # When a reply is received the promise is resolved
+    # - header is added
+    # - content is passed as a resolved promise to the client
     requestSocket.on 'message', (msg) =>
       reply = JSON.parse msg
       header = reply.header
       message = reply.message
       
+      # To be uncomented depending if there is one or several petitions
       # requestSocket.close()
 
       @hashMap[header].resolve message
 
-# sendRequest method
-# - promises the client to provide him with the reply when received
-# - sends a request = header + content
-# - binds request id with promise to be accessed later
-
+  # sendRequest method
+  # - promises the client to provide him with the reply when received
+  # - sends a request = header + content
+  # - binds request id with promise to be accessed later
   sendRequest: (msg) ->
     deferred = bluebird.defer()
     randomId = Math.floor((Math.random() * 100) + 1)

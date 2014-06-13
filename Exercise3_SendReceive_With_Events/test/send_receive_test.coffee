@@ -1,3 +1,4 @@
+#Import
 SendChannel = require '../src/send_channel'
 ReceiveChannel = require '../src/receive_channel'
 

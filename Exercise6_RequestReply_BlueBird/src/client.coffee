@@ -1,13 +1,12 @@
-# CLIENT
-
-# Call sendRequest method of the instance
-# Returns a promise [object] of the sendRequest instance
-# When the promise is resolved, print and afterwards check with test
-
+# Import
 hashMap = {}
 RequestChannel = require './request_channel.coffee'
 requestChannel = new RequestChannel('tcp', 'localhost', '3000', hashMap)
 
+# Call sendRequest method of the RequestChannel instance every N seconds
+# The channel will return a promise [object] of a reply
+# If the promise is resolved it will be printed
+# If the promise is NOT resolved the error will be catched and printed
 setInterval () ->
   requestChannel.sendRequest("It's the end of the world as we know it")
   .then (reply) ->

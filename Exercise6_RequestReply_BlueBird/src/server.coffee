@@ -1,15 +1,15 @@
-# SERVER
-
+# Import
 bluebird = require 'bluebird'
 
-# When the message from ReplyChannel is received,
-# the promise is solved and returned to ReplyChannel
-
+# The server promises reply channel a reply that is
+# sent inside reply channel's constructor as a function
 handleRequest = (msg) ->
   deferred = bluebird.defer()
   # console.log "Server received #{msg} \n"
 
-  setTimeout () -> # Simulate asynchronous behaviour
+  # Simulate asynchronous behaviour by setting a timeout
+  # before resolving the promise
+  setTimeout () ->
     deferred.resolve "and I feel fine"
   , 2000
 
