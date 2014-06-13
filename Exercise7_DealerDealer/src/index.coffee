@@ -1,13 +1,16 @@
-RequestChannel = require './request_channel'
 ReplyChannel = require './reply_channel'
+RequestChannel = require './request_channel'
 
-replyChannel = new ReplyChannel('tcp', 'localhost', '4000')
-requestChannel = new RequestChannel('tcp', 'localhost', '4000')
+replyChannel = new ReplyChannel('tcp', '127.0.0.1', '4000')
+requestChannel = new RequestChannel('tcp', '127.0.0.1', '4000')
 
 setInterval () ->
   requestChannel.sendRequest "It's the end of the world as we know it"
-  replySocket.sendReply "and I feel fine"
-  null
+  replyChannel.sendReply "and I feel fine"
 , 1000
 
-requestChannel.waitForReply()
+console.log "1"
+replyChannel.waitForRequest()
+console.log "2"
+requestChannel.waitForReply((reply) ->
+  console.log "Reply from #{reply.id} #{reply.message} \n")

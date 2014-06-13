@@ -7,6 +7,6 @@ requestChannel = new RequestChannel('tcp', '127.0.0.1', '3000')
 setInterval () ->
   request = 'marramamiau'
   requestChannel.sendRequest request
-, 2000
+, 1000
 
 requestChannel.waitForReply (reply) -> console.log "Received reply #{reply} \n"

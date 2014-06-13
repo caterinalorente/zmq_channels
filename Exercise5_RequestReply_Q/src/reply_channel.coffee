@@ -17,9 +17,9 @@ class ReplyChannel
       request = JSON.parse request
 
 # When the promise is solved, ReplyChannel adds header
-# to the reply and sends it back to RequestChannel      
+# to the reply and sends it back to RequestChannel
 
-      handleRequest request.message 
+      handleRequest request.message
       .then (msg) ->
 
         reply =
